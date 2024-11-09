@@ -27,5 +27,4 @@ Cria um novo produto com os dados fornecidos.
 {
   "name": "Produto A",
   "price": 10.99,
-  "description": "Descrição do Produto A"
 }
