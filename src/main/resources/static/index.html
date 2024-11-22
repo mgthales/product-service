@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Produtos</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f7f6;
+        }
+        /* Estilo para o botão Editar */
+        button.edit {
+            background-color: #4CAF50; /* Verde */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        /* Estilo para o botão Excluir */
+        button.delete {
+            background-color: #f44336; /* Vermelho */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        /* Efeito de hover */
+        button.edit:hover {
+            background-color: #45a049; /* Verde escuro */
+        }
+
+        button.delete:hover {
+            background-color: #d32f2f; /* Vermelho escuro */
+        }
+
+    </style>
+</head>
+<body class="container mx-auto px-4 py-8 max-w-4xl">
+<div class="bg-white shadow-md rounded-lg p-6">
+    <h1 class="text-3xl font-bold text-center mb-6 text-gray-800">Gerenciador de Produtos</h1>
+
+    <form id="produtoForm" class="space-y-4">
+        <input type="hidden" id="produtoId">
+
+        <div>
+            <label for="nome" class="block text-sm font-medium text-gray-700">Nome do Produto</label>
+            <input
+                    type="text"
+                    id="nome"
+                    required
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                    placeholder="Digite o nome do produto"
+            >
+        </div>
+
+        <div>
+            <label for="preco" class="block text-sm font-medium text-gray-700">Preço</label>
+            <input
+                    type="number"
+                    id="preco"
+                    required
+                    step="0.01"
+                    min="0"
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                    placeholder="Digite o preço"
+            >
+        </div>
+
+        <button
+                type="submit"
+                class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 transition duration-300"
+        >
+            Salvar Produto
+        </button>
+    </form>
+
+    <div class="overflow-x-auto mt-6">
+        <table class="w-full bg-white shadow-md rounded-lg overflow-hidden">
+            <thead class="bg-gray-100">
+            <tr>
+                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
+                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nome</th>
+                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Preço</th>
+                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ações</th>
+            </tr>
+            </thead>
+            <tbody id="produtoTabela" class="divide-y divide-gray-200"></tbody>
+        </table>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
